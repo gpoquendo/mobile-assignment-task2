@@ -17,7 +17,9 @@ export default function EventsMap(props: StackScreenProps<any>) {
 
     const handleNavigateToCreateEvent = () => {};
 
-    const handleNavigateToEventDetails = () => {};
+    const handleNavigateToEventDetails = (eventId: string, title: string, date: string) => {
+        navigation.navigate('EventDetails', { eventId, title, date });
+    };
 
     const handleLogout = async () => {
         AsyncStorage.multiRemove(['userInfo', 'accessToken']).then(() => {
@@ -144,6 +146,8 @@ interface event {
         latitude: number;
         longitude: number;
     };
+    title: string;
+    date: string;
 }
 
 const events: event[] = [
@@ -153,6 +157,8 @@ const events: event[] = [
             latitude: 51.105761,
             longitude: -114.106943,
         },
+        title: 'Event 1',
+        date: '2021-09-21',
     },
     {
         id: '98301b22-2b76-44f1-a8da-8c86c56b0367',
@@ -160,6 +166,8 @@ const events: event[] = [
             latitude: 51.04112,
             longitude: -114.069325,
         },
+        title: 'Event 2',
+        date: '2021-09-21',
     },
     {
         id: 'd7b8ea73-ba2c-4fc3-9348-9814076124bd',
@@ -167,6 +175,8 @@ const events: event[] = [
             latitude: 51.01222958257112,
             longitude: -114.11677222698927,
         },
+        title: 'Event 3',
+        date: '2021-09-21',
     },
     {
         id: 'd1a6b9ea-877d-4711-b8d7-af8f1bce4d29',
@@ -174,5 +184,7 @@ const events: event[] = [
             latitude: 51.010801915407036,
             longitude: -114.07823592424393,
         },
+        title: 'Event 4',
+        date: '2021-09-21',
     },
 ];

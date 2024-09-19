@@ -9,6 +9,7 @@ import Login from '../pages/Login';
 import EventsMap from '../pages/EventsMap';
 import { AuthenticationContext, AuthenticationContextObject } from '../context/AuthenticationContext';
 import { User } from '../types/User';
+import EventDetails from '../pages/EventDetails';
 
 export default function Routes() {
     const [authenticatedUser, setAuthenticatedUser] = useState<User>();
@@ -28,7 +29,7 @@ export default function Routes() {
                     }}
                 >
                     <Screen name="Login" component={Login} />
-
+                    <Screen name="EventDetails" component={EventDetails} />
                     <Screen name="EventsMap" component={EventsMap} />
                 </Navigator>
             </NavigationContainer>

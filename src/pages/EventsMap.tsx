@@ -8,7 +8,9 @@ import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import customMapStyle from "../../map-style.json";
 import * as MapSettings from "../constants/MapSettings";
 import { AuthenticationContext } from "../context/AuthenticationContext";
-import mapMarkerImg from "../images/map-marker.png";
+import mapMarkerImgPartial from "../images/map-marker.png";
+import mapMarkerImgFull from "../images/map-marker-grey.png";
+import mapMarkerImgApplied from "../images/map-marker-blue.png";
 
 export default function EventsMap(props: StackScreenProps<any>) {
   const { navigation } = props;
@@ -21,19 +23,25 @@ export default function EventsMap(props: StackScreenProps<any>) {
     eventId: string,
     title: string,
     date: string,
+    time: string,
     vCount: number,
     vRequired: number,
     isApplied: boolean,
-    isFull: boolean
+    isFull: boolean,
+    latitude: number,
+    longitude: number
   ) => {
     navigation.navigate("EventDetails", {
       eventId,
       title,
       date,
+      time,
       vCount,
       vRequired,
       isApplied,
       isFull,
+      latitude,
+      longitude,
     });
   };
 
@@ -42,6 +50,16 @@ export default function EventsMap(props: StackScreenProps<any>) {
       authenticationContext?.setValue(undefined);
       navigation.navigate("Login");
     });
+  };
+
+  const imageSource = (isFull: boolean, isApplied: boolean) => {
+    if (isFull) {
+      return mapMarkerImgFull;
+    } else if (isApplied) {
+      return mapMarkerImgApplied;
+    } else {
+      return mapMarkerImgPartial;
+    }
   };
 
   return (
@@ -81,17 +99,20 @@ export default function EventsMap(props: StackScreenProps<any>) {
                   event.id,
                   event.title,
                   event.date,
+                  event.time,
                   event.volunteersCount,
                   event.volunteersRequired,
                   event.isUserApplied,
-                  event.isFull
+                  event.isFull,
+                  event.position.latitude,
+                  event.position.longitude
                 )
               }
             >
               <Image
                 resizeMode="contain"
                 style={{ width: 48, height: 54 }}
-                source={mapMarkerImg}
+                source={imageSource(event.isFull, event.isUserApplied)}
               />
             </Marker>
           );
@@ -182,6 +203,7 @@ interface event {
   };
   title: string;
   date: string;
+  time: string;
   volunteersCount: number;
   volunteersRequired: number;
   isUserApplied: boolean;
@@ -196,10 +218,11 @@ const events: event[] = [
       longitude: -114.106943,
     },
     title: "Food Distribution 1",
-    date: "2021-09-21",
+    date: "Sep 17, 2024",
+    time: "11:00 AM",
     volunteersCount: 5,
     volunteersRequired: 10,
-    isUserApplied: true,
+    isUserApplied: false,
     isFull: false,
   },
   {
@@ -209,11 +232,12 @@ const events: event[] = [
       longitude: -114.069325,
     },
     title: "Food Distribution 2",
-    date: "2021-09-21",
-    volunteersCount: 10,
+    date: "Sep 17, 2024",
+    time: "11:00 AM",
+    volunteersCount: 9,
     volunteersRequired: 10,
     isUserApplied: true,
-    isFull: true,
+    isFull: false,
   },
   {
     id: "d7b8ea73-ba2c-4fc3-9348-9814076124bd",
@@ -222,8 +246,9 @@ const events: event[] = [
       longitude: -114.11677222698927,
     },
     title: "Food Distribution 3",
-    date: "2021-09-21",
-    volunteersCount: 0,
+    date: "Sep 17, 2024",
+    time: "11:00 AM",
+    volunteersCount: 9,
     volunteersRequired: 10,
     isUserApplied: false,
     isFull: false,
@@ -235,10 +260,11 @@ const events: event[] = [
       longitude: -114.07823592424393,
     },
     title: "Food Distribution 4",
-    date: "2021-09-21",
-    volunteersCount: 0,
+    date: "Sep 17, 2024",
+    time: "11:00 AM",
+    volunteersCount: 10,
     volunteersRequired: 10,
     isUserApplied: false,
-    isFull: false,
+    isFull: true,
   },
 ];

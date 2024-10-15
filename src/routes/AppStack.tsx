@@ -10,6 +10,8 @@ import EventsMap from '../pages/EventsMap';
 import { AuthenticationContext, AuthenticationContextObject } from '../context/AuthenticationContext';
 import { User } from '../types/User';
 import EventDetails from '../pages/EventDetails';
+import CreateEvent from '../pages/CreateEvent';
+import EventForm from '../pages/EventForm';
 
 export default function Routes() {
     const [authenticatedUser, setAuthenticatedUser] = useState<User>();
@@ -31,6 +33,8 @@ export default function Routes() {
                     <Screen name="Login" component={Login} />
                     <Screen name="EventDetails" component={EventDetails} />
                     <Screen name="EventsMap" component={EventsMap} />
+                    <Screen name="CreateEvent" component={CreateEvent} />
+                    <Screen name="EventForm" component={EventForm} />
                 </Navigator>
             </NavigationContainer>
         </AuthenticationContext.Provider>

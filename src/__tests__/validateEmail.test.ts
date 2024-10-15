@@ -3,7 +3,8 @@ import { validateEmail } from '../utils/index';
 describe('validateEmail function', () => {
   it('should validate correct email addresses', () => {
     expect(validateEmail('user@example.com')).toBe(true);
-    expect(validateEmail('user.name@example.co.uk')).toBe(true);
+    expect(validateEmail('john@silva.com.br')).toBe(true);
+    expect(validateEmail('luigi@carluccio.it')).toBe(true);
     expect(validateEmail('user-tag@example.org')).toBe(true);
     expect(validateEmail('user.name-tag-123@sub.example.com')).toBe(true);
   });

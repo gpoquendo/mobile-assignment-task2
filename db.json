@@ -83,7 +83,7 @@
                 "last": "Carluccio"
             },
             "email": "luigi@carluccio.it",
-            "password": "$2a$10$riZrILdnrgZfM1eymhR6leGdp9Pe3s1MbL6ig5HegPf0QcYImfV22",
+            "password": "$2b$10$dyAp390OpCrqadqdN75RP.RIK9VlcgMTtFJeD5dkFOFiGfhytgShK",
             "id": "gpFfX6e",
             "mobile": "(171) 946-2538"
         },
@@ -93,7 +93,7 @@
                 "last": "Silva"
             },
             "email": "john@silva.com.br",
-            "password": "$2a$10$CjzilCJ3NAbs29mPjEJik.gGaD/P4X2.TO5oO7icjSi6lC9Hy..X2",
+            "password": "$2b$10$rkUEHQDaPYiQZxmuYLCqY.pigML/Dkf8tce24cRChgfwMg0LHARx2",
             "id": "3UN3-2L",
             "mobile": "(563) 589-2999"
         },

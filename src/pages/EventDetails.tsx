@@ -1,3 +1,32 @@
+/**
+ * EventDetails component displays detailed information about a specific event.
+ * It includes event image, name, description, date, time, and status.
+ * It also provides options for volunteering, sharing, calling, and texting.
+ * Additionally, it shows the event location on a map and provides directions.
+ *
+ * @returns {JSX.Element} The rendered component.
+ *
+ * @component
+ * @example
+ * return (
+ *   <EventDetails />
+ * )
+ *
+ * @typedef {Object} RouteParams
+ * @property {Object} params - The route parameters.
+ * @property {Object} params.event - The event details.
+ * @property {Object} params.user - The user details.
+ *
+ * @typedef {Object} RootStackParamList
+ * @property {undefined} EventsMap - The EventsMap screen.
+ * @property {RouteParams["params"]} EventDetails - The EventDetails screen.
+ *
+ * @typedef {StackNavigationProp<RootStackParamList, "EventDetails">} EventDetailsNavigationProp
+ *
+ * @typedef {Object} AuthenticationContext
+ * @property {Object} value - The authentication context value.
+ * @property {string} value.id - The authenticated user's ID.
+ */
 import React, { useContext, useRef, useState } from "react";
 import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import { useRoute, RouteProp, useNavigation } from "@react-navigation/native";
@@ -49,6 +78,15 @@ export default function EventDetails() {
     hour12: true,
   });
 
+  /**
+   * Determines the status icon to display based on the event's volunteer information.
+   *
+   * @returns {JSX.Element} The status icon or text indicating the volunteer status.
+   *
+   * - If the authenticated user is a volunteer for the event, a check icon is displayed.
+   * - If the number of volunteers needed is met, a slash icon is displayed.
+   * - Otherwise, the number of volunteers still needed is displayed.
+   */
   const statusIcon = () => {
     const volunteersIds = event.volunteersIds || [];
     const volunteersNeeded = event.volunteersNeeded || 0;
@@ -75,6 +113,15 @@ export default function EventDetails() {
     }
   };
 
+  /**
+   * Determines the status text to display based on the volunteer status of the current user
+   * and the number of volunteers needed for the event.
+   *
+   * @returns {JSX.Element} A Text component indicating the volunteer status:
+   * - "Volunteered" if the current user is already a volunteer.
+   * - "Team is full" if the number of volunteers needed has been met.
+   * - "Volunteer(s) needed" if more volunteers are still needed.
+   */
   const statusText = () => {
     const volunteerIds = event.volunteersIds || [];
     const volunteersNeeded = event.volunteersNeeded || 0;

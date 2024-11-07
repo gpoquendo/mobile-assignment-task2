@@ -10,19 +10,32 @@ interface LabeledInputProps {
   style?: object;
 }
 
+/**
+ * A labeled input component that displays a label and a text input field.
+ *
+ * @param {Object} props - The properties object.
+ * @param {string} props.label - The label text to display above the input field.
+ * @param {string} props.value - The current value of the input field.
+ * @param {function} props.onChangeText - Callback function to handle text changes in the input field.
+ * @param {boolean} [props.multiline=false] - Whether the input field should support multiple lines of text.
+ * @param {number} [props.numberOfLines=1] - The number of lines to display in the input field when multiline is true.
+ * @param {Object} [props.style] - Additional styles to apply to the container view.
+ *
+ * @returns {JSX.Element} The rendered labeled input component.
+ */
 const LabeledInput: React.FC<LabeledInputProps> = ({
   label,
   value,
   onChangeText,
   multiline = false,
   numberOfLines = 1,
-  style = {},
+  style,
 }) => {
   return (
     <View style={[styles.container, style]}>
       <Text style={styles.label}>{label}</Text>
       <TextInput
-        style={[styles.input, multiline && styles.textArea]}
+        style={[styles.input, multiline ? styles.textArea : null]}
         value={value}
         onChangeText={onChangeText}
         multiline={multiline}

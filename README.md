@@ -1,5 +1,13 @@
 # Volunteam App
 
+<p align="center">
+    <img src="./documentation/01-login.PNG" alt="login screen" width="auto" height="480">
+    <img src="./documentation/02-map-events.PNG" alt="map of events screen" width="auto" height="480">
+    <img src="./documentation/05-event-volunteered.PNG" alt="event page and user has volunteered" width="auto" height="480">
+</p>
+
+**Volunteam** is a mobile app where users can find events that need volunteers, apply to those events and become part of the events' teams
+
 ## Setting up the fake API (json-server)
 
 Update the file `src/services/api.ts`.
@@ -36,3 +44,57 @@ When creating your app build or publishing, import your secret values to EAS run
 ```
 eas secret:push
 ```
+
+## Running mobile app
+
+After running the *'json-server'*, run the mobile app with:
+
+```
+yarn start
+```
+
+Or
+
+```
+npx expo start
+```
+
+You can open the mobile app using the *'Xcode Simulator'* on Mac, *'Android Emulator'* on Android Studio, or *'Expo Go'* on your mobile phone.
+
+- ***Simulator***: press `i` key
+- ***Android Emulator***: press `a` key
+- ***Expo Go***: scan the __qr code__ with your phone that has Expo Go installed
+
+<hr />
+
+### Event pages where the user can still sign up as volunteer and a map to get directions to event
+
+<p align="center">
+<img src="./documentation/03-event-open.PNG" alt="event page with open slots for volunteers" width="auto" height="480">
+<img src="./documentation/04-event-nav.PNG" alt="event page with map for navigating directions" width="auto" height="480">
+</p>
+
+<hr />
+
+### To add a new event, tap on the map location and a marker will appear. Press "Next" button.
+
+<p align="center">
+<img src="./documentation/06-map-add-event.PNG" alt="map to add an event location" width="auto" height="480">
+<img src="./documentation/07-map-event-added.PNG" alt="event location added on map" width="auto" height="480">
+</p>
+
+<hr />
+
+### Fill up the form with the event details including uploading an image
+
+<p align="center">
+<img src="./documentation/08-event-form.PNG" alt="event form" width="auto" height="480">
+</p>
+
+<hr />
+
+### After filling up and submitting form, you will be redirected to the events map page with the new event marker and number or events updated
+
+<p align="center">
+<img src="./documentation/09-map-events-updated.PNG" alt="updated map of events with new event" width="auto" height="480">
+</p>

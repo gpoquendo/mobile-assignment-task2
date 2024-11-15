@@ -21,6 +21,20 @@ interface ImageUploaderProps {
   setImageUrl: (url: string) => void;
 }
 
+/**
+ * ImageUploader component allows users to upload or capture an image.
+ * It provides functionalities to request permissions, select an image from the media library,
+ * capture an image using the camera, and remove the selected image.
+ *
+ * @component
+ * @param {ImageUploaderProps} props - The props for the ImageUploader component.
+ * @param {function} props.setImageUrl - Function to update the parent component with the selected image's URI.
+ *
+ * @typedef {Object} ImageUploaderProps
+ * @property {function} setImageUrl - Function to update the parent component with the selected image's URI.
+ *
+ * @returns {JSX.Element} The rendered ImageUploader component.
+ */
 const ImageUploader = (props: ImageUploaderProps) => {
   const [image, setImage] = useState<{
     uri: string;
@@ -29,6 +43,18 @@ const ImageUploader = (props: ImageUploaderProps) => {
   } | null>(null);
   const [imageUrl, setImageUrl] = useState("");
 
+  /**
+   * Handles the image selection process from the media library.
+   * Requests permission to access the media library, and if granted,
+   * allows the user to select an image. If an image is selected,
+   * it updates the state with the image's URI, a default file name,
+   * and a default file size. It also updates the parent component
+   * with the selected image's URI.
+   *
+   * @async
+   * @function handleSelectImage
+   * @throws Will alert the user if permission is denied or if an error occurs during image selection.
+   */
   const handleSelectImage = async () => {
     try {
       const { status } =
@@ -66,6 +92,20 @@ const ImageUploader = (props: ImageUploaderProps) => {
     }
   };
 
+  /**
+   * Handles the image capture process using the device's camera.
+   * 
+   * This function requests camera permissions, launches the camera for image capture,
+   * and processes the captured image. If the user denies camera permissions, an alert
+   * is shown. If an image is successfully captured, it updates the state with the image
+   * URI, a default file name, and a default file size. It also updates the parent component
+   * with the image URI.
+   * 
+   * @async
+   * @function handleCaptureImage
+   * @returns {Promise<void>} A promise that resolves when the image capture process is complete.
+   * @throws Will show an alert and log an error if an error occurs during the image capture process.
+   */
   const handleCaptureImage = async () => {
     try {
       const { status } = await ImagePicker.requestCameraPermissionsAsync();

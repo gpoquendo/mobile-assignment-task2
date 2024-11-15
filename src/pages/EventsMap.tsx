@@ -65,7 +65,6 @@ export default function EventsMap(props: StackScreenProps<any>) {
     <View style={styles.container}>
       <MapView
         ref={mapViewRef}
-        provider={PROVIDER_GOOGLE}
         initialRegion={MapSettings.DEFAULT_REGION}
         style={styles.mapStyle}
         customMapStyle={customMapStyle}

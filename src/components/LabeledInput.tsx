@@ -13,13 +13,13 @@ interface LabeledInputProps {
 /**
  * A labeled input component that displays a label and a text input field.
  *
- * @param {Object} props - The properties object.
- * @param {string} props.label - The label text to display above the input field.
- * @param {string} props.value - The current value of the input field.
- * @param {function} props.onChangeText - Callback function to handle text changes in the input field.
- * @param {boolean} [props.multiline=false] - Whether the input field should support multiple lines of text.
- * @param {number} [props.numberOfLines=1] - The number of lines to display in the input field when multiline is true.
- * @param {Object} [props.style] - Additional styles to apply to the container view.
+ * @param {Object} LabeledInputProps - The properties object.
+ * @param {string} LabeledInputProps.label - The label text to display above the input field.
+ * @param {string} LabeledInputProps.value - The current value of the input field.
+ * @param {function} LabeledInputProps.onChangeText - Callback function to handle text changes in the input field.
+ * @param {boolean} [LabeledInputProps.multiline] - Whether the input field should support multiple lines of text.
+ * @param {number} [LabeledInputProps.numberOfLines] - The number of lines to display in the input field when multiline is true.
+ * @param {Object} [LabeledInputProps.style] - Additional styles to apply to the container view.
  *
  * @returns {JSX.Element} The rendered labeled input component.
  */

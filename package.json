@@ -7,10 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest",
-    "build:android": "eas build --platform android",
-    "build:ios": "eas build --platform ios",
-    "build:web": "expo build:web",
-    "build": "yarn build:android && yarn build:ios && yarn build:web"
+    "build:all": "eas build --platform all"
   },
   "dependencies": {
     "@expo-google-fonts/nunito": "^0.2.2",

@@ -31,17 +31,12 @@ jobs:
           API_URL: 'http://localhost:3333'
         run: yarn test
 
-      - name: Build Android Binary
+      - name: Log in to Expo
+        run: eas login --token $EXPO_TOKEN
         env:
-          API_URL: 'http://localhost:3333'
-        run: yarn build:android
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Build iOS Binary
+      - name: Build All Platforms
         env:
           API_URL: 'http://localhost:3333'
-        run: yarn build:ios
-
-      - name: Build Web App
-        env:
-          API_URL: 'http://localhost:3333'
-        run: yarn build:web
+        run: yarn build:all

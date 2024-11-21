@@ -1,4 +1,4 @@
-# Volunteam App
+# Volunteam App v1.1
 
 <p align="center">
     <img src="./documentation/01-login.PNG" alt="login screen" width="auto" height="480">

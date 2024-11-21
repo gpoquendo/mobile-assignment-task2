@@ -30,6 +30,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
                 cameraPermission: 'The app accesses your camera to let you add pictures to events.',
             },
         ],
+        "expo-font"
     ],
     extra: {
         eas: {

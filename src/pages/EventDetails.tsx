@@ -210,7 +210,6 @@ export default function EventDetails() {
         <View style={styles.mapContainer}>
           <MapView
             ref={mapViewRef}
-            provider={PROVIDER_GOOGLE}
             initialRegion={{
               latitude: event.position.latitude,
               longitude: event.position.longitude,

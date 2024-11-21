@@ -67,7 +67,6 @@ export default function CreateEvent(props: StackScreenProps<any>) {
 
       <MapView
         ref={mapViewRef}
-        provider={PROVIDER_GOOGLE}
         mapPadding={MapSettings.EDGE_PADDING}
         initialRegion={{
           latitude: 51.04758,

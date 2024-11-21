@@ -1,3 +1,13 @@
+/**
+ * EventForm component allows users to create a new event by filling out a form.
+ * It includes fields for event name, description, number of volunteers needed, date and time, and an image uploader.
+ * The form validates the input fields and enables the save button only when all fields are correctly filled.
+ * On saving, it navigates to the EventsMap screen with the newly created event details.
+ *
+ * @param {Object} props - The component props.
+ * @param {EventFormRouteProp} props.route - The route prop containing the location parameter.
+ * @returns {JSX.Element} The rendered EventForm component.
+ */
 import React, { useEffect, useState } from "react";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { StyleSheet, View, Text } from "react-native";
@@ -48,6 +58,20 @@ export default function EventForm({ route }: { route: EventFormRouteProp }) {
     validateForm();
   }, [eventName, about, volunteersNeeded, dateTime, location, imageUrl]);
 
+  /**
+   * Validates the event form by checking if all required fields are filled and valid.
+   * 
+   * The form is considered valid if:
+   * - `eventName` is not empty or just whitespace.
+   * - `about` is not empty or just whitespace.
+   * - `volunteersNeeded` is not empty or just whitespace.
+   * - `dateTime` is not empty or just whitespace.
+   * - `location.latitude` is not zero.
+   * - `location.longitude` is not zero.
+   * - `imageUrl` is not empty or just whitespace.
+   * 
+   * If all conditions are met, sets `isFormValid` to true, otherwise sets it to false.
+   */
   const validateForm = () => {
     if (
       eventName.trim() &&
@@ -64,6 +88,12 @@ export default function EventForm({ route }: { route: EventFormRouteProp }) {
     }
   };
   
+  /**
+   * Handles the save action for the event form.
+   * Parses the date and time, creates a new event object, and navigates to the EventsMap screen with the new event.
+   *
+   * @returns {void}
+   */
   const handleSave = () => {
     const parsedDateTime = moment(dateTime, "MMMM DD, YYYY hh:mm A").toISOString();
     const newEvent = {

@@ -1,3 +1,18 @@
+/**
+ * The `CreateEvent` component allows users to select a location on a map for creating an event.
+ * It displays a map using `react-native-maps` and allows users to place a marker by tapping on the map.
+ * Users can proceed to the next step by pressing the "Next" button after selecting a location.
+ *
+ * @param {StackScreenProps<any>} props - The navigation props passed to the component.
+ *
+ * @returns {JSX.Element} The rendered component.
+ *
+ * @component
+ * @example
+ * return (
+ *   <CreateEvent />
+ * )
+ */
 import React, { useEffect, useRef, useState } from "react";
 import MapView, {
   Marker,

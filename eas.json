@@ -5,6 +5,7 @@
     },
     "build": {
       "preview": {
+        "developmentClient": false,
         "distribution": "internal",
         "ios": {
           "buildConfiguration": "Release",

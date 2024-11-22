@@ -18,11 +18,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
       
-      - name: Login to Expo
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-        run: npx eas-cli login
-      
       - name: Start json-server
         run: |
           npx json-server --watch db.json --port 3333 &

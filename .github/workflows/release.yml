@@ -32,7 +32,7 @@ jobs:
         run: yarn test
 
       - name: Log in to Expo
-        run: eas login --token $EXPO_TOKEN
+        run: npx eas login --token $EXPO_TOKEN
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 

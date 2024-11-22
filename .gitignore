@@ -15,4 +15,5 @@ web-build/
 # environment variables
 .env
 
-api.ts
+# Android Keystore
+my-release-key.keystore

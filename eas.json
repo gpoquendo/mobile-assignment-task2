@@ -8,8 +8,9 @@
         "developmentClient": true,
         "distribution": "internal",
         "android": {
+          "credentialsSource": "local",
           "keystore": {
-            "path": "./my-release-key.keystore",
+            "keystorePath": "./my-release-key.keystore",
             "keystorePassword": "${ANDROID_KEYSTORE_PASSWORD}",
             "keyAlias": "${ANDROID_KEY_ALIAS}",
             "keyPassword": "${ANDROID_KEY_PASSWORD}"
@@ -19,8 +20,9 @@
       "preview": {
         "distribution": "internal",
         "android": {
+          "credentialsSource": "local",
           "keystore": {
-            "path": "./my-release-key.keystore",
+            "keystorePath": "./my-release-key.keystore",
             "keystorePassword": "${ANDROID_KEYSTORE_PASSWORD}",
             "keyAlias": "${ANDROID_KEY_ALIAS}",
             "keyPassword": "${ANDROID_KEY_PASSWORD}"
@@ -29,8 +31,9 @@
       },
       "production": {
         "android": {
+          "credentialsSource": "local",
           "keystore": {
-            "path": "./my-release-key.keystore",
+            "keystorePath": "./my-release-key.keystore",
             "keystorePassword": "${ANDROID_KEYSTORE_PASSWORD}",
             "keyAlias": "${ANDROID_KEY_ALIAS}",
             "keyPassword": "${ANDROID_KEY_PASSWORD}"

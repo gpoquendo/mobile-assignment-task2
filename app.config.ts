@@ -4,6 +4,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     ...config,
     name: 'volunteam',
     slug: 'volunteam',
+    owner: 'gpoquendo',
     version: '1.0.0',
     orientation: 'portrait',
     icon: './assets/icon.png',
@@ -33,9 +34,12 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
         "expo-font"
     ],
     extra: {
-        eas: {
-            projectId: '954f3b8e-1155-4f8f-8601-a2b3126da39e',
-        },
+        // eas: {
+        //     projectId: '954f3b8e-1155-4f8f-8601-a2b3126da39e',
+        // },
+        "eas": {
+        "projectId": "422959f3-7014-406d-92d3-e44fb1608cae"
+      },
         IMGBB_API_KEY: process.env.IMGBB_API_KEY,
     },
 });

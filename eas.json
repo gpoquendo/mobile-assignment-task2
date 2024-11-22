@@ -1,17 +1,16 @@
 {
     "cli": {
-    "version": ">= 5.9.1",
-    "appVersionSource": "remote"
-  },
+      "version": ">= 5.9.1",
+      "appVersionSource": "remote"
+    },
     "build": {
-      "production": {
-        "distribution": "store",
-        "android": {
-          "buildType": "apk"
-        },
-        "ios": {
-          "simulator": false
-        }
-      }
+      "development": {
+        "developmentClient": true,
+        "distribution": "internal"
+      },
+      "preview": {
+        "distribution": "internal"
+      },
+      "production": {}
     }
   }

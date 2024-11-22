@@ -4,14 +4,22 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        platform: [ios, android]
+    if: >
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
 
     steps:
       - name: Checkout repository
@@ -30,13 +38,8 @@ jobs:
           echo "EXPO_TOKEN=${{ secrets.EXPO_TOKEN }}" >> $GITHUB_ENV
           echo "API_URL=${{ secrets.API_URL }}" >> $GITHUB_ENV
 
-      - name: Build for ${{ matrix.platform }}
-        run: |
-          if [ "${{ matrix.platform }}" == "ios" ]; then
-            npx eas build --platform ios --profile preview --non-interactive
-          elif [ "${{ matrix.platform }}" == "android" ]; then
-            npx eas build --platform android --profile preview --non-interactive
-          fi
+      - name: Build iOS Simulator
+        run: npx eas build --platform ios --profile preview --non-interactive
 
       - name: Create GitHub Release
         id: create_release

@@ -10,9 +10,9 @@
         "android": {
           "credentialsSource": "local",
           "keystore": {
-            "keystorePath": "./my-release-key.keystore",
+            "path": "./my-release-key.keystore",
             "keystorePassword": "${ANDROID_KEYSTORE_PASSWORD}",
-            "keyAlias": "${ANDROID_KEY_ALIAS}",
+            "keyAlias": "mykeyalias",
             "keyPassword": "${ANDROID_KEY_PASSWORD}"
           }
         }
@@ -22,9 +22,9 @@
         "android": {
           "credentialsSource": "local",
           "keystore": {
-            "keystorePath": "./my-release-key.keystore",
+            "path": "./my-release-key.keystore",
             "keystorePassword": "${ANDROID_KEYSTORE_PASSWORD}",
-            "keyAlias": "${ANDROID_KEY_ALIAS}",
+            "keyAlias": "mykeyalias",
             "keyPassword": "${ANDROID_KEY_PASSWORD}"
           }
         }
@@ -33,9 +33,9 @@
         "android": {
           "credentialsSource": "local",
           "keystore": {
-            "keystorePath": "./my-release-key.keystore",
+            "path": "./my-release-key.keystore",
             "keystorePassword": "${ANDROID_KEYSTORE_PASSWORD}",
-            "keyAlias": "${ANDROID_KEY_ALIAS}",
+            "keyAlias": "mykeyalias",
             "keyPassword": "${ANDROID_KEY_PASSWORD}"
           }
         }

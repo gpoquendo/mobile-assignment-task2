@@ -6,11 +6,36 @@
     "build": {
       "development": {
         "developmentClient": true,
-        "distribution": "internal"
+        "distribution": "internal",
+        "android": {
+          "keystore": {
+            "path": "./my-release-key.keystore",
+            "keystorePassword": "${ANDROID_KEYSTORE_PASSWORD}",
+            "keyAlias": "${ANDROID_KEY_ALIAS}",
+            "keyPassword": "${ANDROID_KEY_PASSWORD}"
+          }
+        }
       },
       "preview": {
-        "distribution": "internal"
+        "distribution": "internal",
+        "android": {
+          "keystore": {
+            "path": "./my-release-key.keystore",
+            "keystorePassword": "${ANDROID_KEYSTORE_PASSWORD}",
+            "keyAlias": "${ANDROID_KEY_ALIAS}",
+            "keyPassword": "${ANDROID_KEY_PASSWORD}"
+          }
+        }
       },
-      "production": {}
+      "production": {
+        "android": {
+          "keystore": {
+            "path": "./my-release-key.keystore",
+            "keystorePassword": "${ANDROID_KEYSTORE_PASSWORD}",
+            "keyAlias": "${ANDROID_KEY_ALIAS}",
+            "keyPassword": "${ANDROID_KEY_PASSWORD}"
+          }
+        }
+      }
     }
   }

@@ -31,12 +31,8 @@ jobs:
           API_URL: 'http://localhost:3333'
         run: yarn test
 
-      - name: Log in to Expo
-        run: npx eas login --token $EXPO_TOKEN
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-
       - name: Build All Platforms
         env:
           API_URL: 'http://localhost:3333'
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: yarn build:all

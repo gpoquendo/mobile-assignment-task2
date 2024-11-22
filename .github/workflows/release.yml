@@ -8,7 +8,9 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -23,9 +25,6 @@ jobs:
       
       - name: Install EAS CLI
         run: npm install -g eas-cli
-      
-      - name: Set EXPO_TOKEN Environment Variable
-        run: echo "EAS_AUTH_TOKEN=${{ secrets.EXPO_TOKEN }}" >> $GITHUB_ENV
       
       - name: Build iOS Simulator
         run: eas build --platform ios --profile preview --non-interactive

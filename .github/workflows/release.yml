@@ -19,7 +19,9 @@ jobs:
         run: yarn install
       
       - name: Login to Expo
-        run: echo ${{ secrets.EXPO_TOKEN }} | npx eas-cli login
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: npx eas-cli login
       
       - name: Start json-server
         run: |

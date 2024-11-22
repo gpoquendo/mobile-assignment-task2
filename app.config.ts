@@ -19,7 +19,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     assetBundlePatterns: ['**/*'],
     ios: {
         supportsTablet: true,
-        bundleIdentifier: "com.bvc_mobile_app_gpoquendo.volunteam"
+        bundleIdentifier: "com.bvc-mobile-app-gpoquendo.volunteam"
     },
     android: {
         package: 'com.bvc_mobile_app_gpoquendo.volunteam'

@@ -21,7 +21,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
         supportsTablet: true,
     },
     android: {
-        package: 'com.bvc-mobile-app-gpoquendo.volunteam'
+        package: 'com.bvc_mobile_app_gpoquendo.volunteam'
     },
     web: {
         favicon: './assets/favicon.png',

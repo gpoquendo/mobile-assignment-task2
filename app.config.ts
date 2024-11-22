@@ -43,7 +43,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     eas: {
       projectId: "422959f3-7014-406d-92d3-e44fb1608cae"
     },
-    API_URL: "https://my-json-server.typicode.com/gpoquendo/mobile-assignment-task2",
+    API_URL: process.env.API_URL,
     IMGBB_API_KEY: process.env.IMGBB_API_KEY,
   },
 });

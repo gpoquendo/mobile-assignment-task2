@@ -21,10 +21,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
       
-      # Removed global EAS CLI installation
-      # - name: Install EAS CLI
-      #   run: npm install -g eas-cli
-      
       - name: Set EXPO_TOKEN Environment Variable
         run: |
           echo "EXPO_TOKEN=${{ secrets.EXPO_TOKEN }}" >> $GITHUB_ENV
@@ -32,3 +28,20 @@ jobs:
       
       - name: Build iOS Simulator
         run: npx eas build --platform ios --profile preview --non-interactive
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Release v${{ github.run_number }}
+          body: |
+            **Build Details:**
+            - Build Number: ${{ github.run_number }}
+            - Commit: ${{ github.sha }}
+            - Branch: ${{ github.ref }}
+            - Build URL: [View on Expo](https://expo.dev/accounts/gpoquendo/projects/volunteam/builds/36a91b03-a6aa-441e-961f-ad4e73c123d5)
+          draft: false
+          prerelease: false

@@ -26,7 +26,9 @@ jobs:
       #   run: npm install -g eas-cli
       
       - name: Set EXPO_TOKEN Environment Variable
-        run: echo "EXPO_TOKEN=${{ secrets.EXPO_TOKEN }}" >> $GITHUB_ENV
+        run: |
+          echo "EXPO_TOKEN=${{ secrets.EXPO_TOKEN }}" >> $GITHUB_ENV
+          echo "API_URL=${{ secrets.API_URL }}" >> $GITHUB_ENV
       
       - name: Build iOS Simulator
         run: npx eas build --platform ios --profile preview --non-interactive

@@ -1,39 +1,36 @@
 name: Release Workflow
-
 on:
   push:
     branches:
       - main
-
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+      
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-
+      
       - name: Install dependencies
         run: yarn install
-
+      
       - name: Login to Expo
-        run: npx eas-cli login --non-interactive --token ${{ secrets.EXPO_TOKEN }}
+        run: echo ${{ secrets.EXPO_TOKEN }} | npx eas-cli login
       
       - name: Start json-server
         run: |
           npx json-server --watch db.json --port 3333 &
           sleep 5
-
+      
       - name: Run unit tests
         env:
           API_URL: 'http://localhost:3333'
         run: yarn test
-
+      
       - name: Build All Platforms
         env:
           API_URL: 'http://localhost:3333'

@@ -7,7 +7,7 @@
       "preview": {
         "distribution": "internal",
         "ios": {
-          "buildConfiguration": "Debug",
+          "buildConfiguration": "Release",
           "credentialsSource": "remote",
           "simulator": true
         }

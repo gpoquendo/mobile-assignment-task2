@@ -21,11 +21,12 @@ jobs:
       - name: Install dependencies
         run: yarn install
       
-      - name: Install EAS CLI
-        run: npm install -g eas-cli
+      # Removed global EAS CLI installation
+      # - name: Install EAS CLI
+      #   run: npm install -g eas-cli
       
       - name: Set EXPO_TOKEN Environment Variable
         run: echo "EXPO_TOKEN=${{ secrets.EXPO_TOKEN }}" >> $GITHUB_ENV
       
       - name: Build iOS Simulator
-        run: eas build --platform ios --profile preview --non-interactive
+        run: npx eas build --platform ios --profile preview --non-interactive

@@ -1,44 +1,16 @@
 {
-  "cli": {
-    "version": ">= 5.9.1",
-    "appVersionSource": "remote"
-  },
-  "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal",
-      "android": {
-        "credentialsSource": "local",
-        "keystore": {
-          "path": "./my-release-key.keystore",
-          "password": "${ANDROID_KEYSTORE_PASSWORD}",
-          "keyAlias": "mykeyalias",
-          "keyPassword": "${ANDROID_KEY_PASSWORD}"
-        }
-      }
+    "cli": {
+      "version": ">= 5.9.1",
+      "appVersionSource": "remote"
     },
-    "preview": {
-      "distribution": "internal",
-      "android": {
-        "credentialsSource": "local",
-        "keystore": {
-          "path": "./my-release-key.keystore",
-          "password": "${ANDROID_KEYSTORE_PASSWORD}",
-          "keyAlias": "mykeyalias",
-          "keyPassword": "${ANDROID_KEY_PASSWORD}"
-        }
-      }
-    },
-    "production": {
-      "android": {
-        "credentialsSource": "local",
-        "keystore": {
-          "path": "./my-release-key.keystore",
-          "password": "${ANDROID_KEYSTORE_PASSWORD}",
-          "keyAlias": "mykeyalias",
-          "keyPassword": "${ANDROID_KEY_PASSWORD}"
+    "build": {
+      "preview": {
+        "distribution": "internal",
+        "ios": {
+          "buildConfiguration": "Debug",
+          "credentialsSource": "remote",
+          "simulator": true
         }
       }
     }
   }
-}
